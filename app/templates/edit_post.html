@@ -1,0 +1,18 @@
+{% extends "mybase.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Edit Post{%  endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <h1>Edit Post</h1>
+</div>
+
+<div class="post-entry">
+    {% if current_user.can(Permission.WRITE) %}
+        {{ wtf.quick_form(form) }}
+    {% endif %}
+</div>
+
+{% endblock %}
